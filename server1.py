@@ -10,6 +10,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("Connected by", addr)
         while True:
             h = conn.recv(1024)
+
+            #solution:
+            if not h:
+                break
+            #end
+            
             print(h.decode("utf-8"))
             data = ('Hi from server!'.encode("utf-8"))
             conn.sendall(data)

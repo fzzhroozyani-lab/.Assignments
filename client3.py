@@ -6,7 +6,13 @@ with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
     for i in name:
         s.sendall(i.encode())
         data=s.recv(1024)
+
+        #This line is useless👇
         data.decode()
+        #Use this instead: print(data.decode())
+        #end
+
         print(data)
+
         time.sleep(3)
 
